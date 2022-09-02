@@ -1,0 +1,59 @@
+<ion-content>
+  <form  (ngSubmit)="click(f)" #f="ngForm">
+    <div id="formulario">
+      <div>
+        <ion-item>
+          <ion-label position="floating">Barrios</ion-label>
+          <ion-select
+            placeholder="Seleccione el Barrio"
+            name="barrio"
+            ngModel
+            required
+          >
+            <ion-select-option
+              *ngFor="let option of options"
+              value="{{option.neighbor_id}}"
+              >{{option.neighbor}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </div>
+      <div>
+        <ion-item>
+          <ion-label position="floating">Tipo de Infraestructura</ion-label>
+          <ion-select
+            placeholder="Seleccione Infraestructura"
+            name="infraestructura"
+            ngModel
+            required
+          >
+            <ion-select-option
+              *ngFor="let option of options"
+              value="{{option.infrastructure_id}}"
+              >{{option.infrastructure}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </div>
+      <div>
+        <ion-item>
+          <ion-label position="floating">Tipo de Problema</ion-label>
+          <ion-select
+            placeholder="Seleccione el Problema"
+            name="problema"
+            ngModel
+            required
+          >
+            <ion-select-option
+              *ngFor="let option of options"
+              value="{{option.problem_id}}"
+              >{{option.problem}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="box"><ion-button type="submit" [disabled]="!f.valid">Enviar</ion-button></div>
+    </div>
+  </form>
+  <div id="mapa"></div>
+</ion-content>
